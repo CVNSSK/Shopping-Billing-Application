@@ -1,52 +1,52 @@
-# Prerequisites
-*.d
-
-# Object files
+#############################################
+# Build / Binaries
+#############################################
+/build/
+/quickbill
+/quickbill.exe
 *.o
-*.ko
 *.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
 *.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+*.exe
+*.log
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+#############################################
+# macOS / Windows OS junk files
+#############################################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+#############################################
+# Editor / IDE configs
+#############################################
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*.tmp
+
+#############################################
+# Runtime / Generated Data (QuickBill)
+#############################################
+# Auto-generated bill files (MM_DD_YYYY.txt)
+/data/??_??_????.txt
+
+# Generated return log
+/data/Return.txt
+
+# Generated bill counter file
+/data/cidupdate.txt
+
+# Real credentials file (created locally)
+/data/password.txt
+
+#############################################
+# Keep these important data files
+#############################################
+!data/mycssv.csv
+!data/password_sample.txt
+# Optional: keep a sanitized sample bill file
+!data/sample_bill.txt
