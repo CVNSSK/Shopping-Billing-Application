@@ -5,45 +5,70 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <math.h>
-
+#include <ctype.h>
+#include <errno.h>
+#include <limits.h>
 #ifdef _WIN32
-    #include <conio.h>
+  #include <windows.h>
+  #include <conio.h> /* used only if available; kb_getch abstracts it */
 #else
-    char getch();
+  #include <unistd.h>
+  #include <termios.h>
 #endif
 
 #define MAX_PRODUCTS 100
 
-struct product {
+
+typedef struct {
     int Code;
     int quantity;
     char p_Name[20];
-    long int MRP;
-    long int dis;
-    long int GST;
-    long int Netcost;
-    long int Taxable;
-};
+    long MRP;
+    long dis;
+    long GST;
+    long Netcost;
+    long Taxable;
+} Product;
 
-extern struct product product[MAX_PRODUCTS];
 
-// Admin
-int ReviewBill();
-int ChangePassword(int n);
-void EditBiller();
+extern Product product[MAX_PRODUCTS];
 
-// Biller
-int NewBill();
-int ReturnProduct();
 
-// Utils
-int login(int* fla, int* id);
-void rfile(int cnt);
-void b_Print(long int cmno, int id, int *cnt);
+/* cross-platform single-char input without enter */
+int kb_getch(void);
+
+
+/* corss-platform multi-char input wihtout enter */
+void kb_gets(char *buf, size_t bufsz);
+
+
+/* optional masked password input */
+int read_password_hidden(char *out, size_t outsz, int echo_stars);
+
+
+/* open a file from the data/ directory */
+FILE *open_data_file(const char *name, const char *mode);
+
+
+/* utils */
+FILE *addto(void);
 void print_date(FILE *ptr, char ch);
 void convt(char arr[30], int i, int l);
+void rfile(int cnt);
 void filewrite(int id, int *cnt);
-FILE* addto();
+void b_Print(long cmno, int id, int *cnt);
+
+
+/* admin */
+int login(int *fla, int *id);
+int ChangePassword(int mode);  /* mode 0 = change; mode 1 = remove biller by id */
+void EditBiller(void);
+int ReviewBill(void);
+
+
+/* biller */
+int NewBill(int id);
+int ReturnProduct(void);
+
 
 #endif
