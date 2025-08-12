@@ -40,13 +40,8 @@ desktop.ini
 # Generated bill counter file
 /data/cidupdate.txt
 
-# Real credentials file (created locally)
-/data/password.txt
-
 #############################################
 # Keep these important data files
 #############################################
-!data/mycssv.csv
-!data/password_sample.txt
-# Optional: keep a sanitized sample bill file
-!data/sample_bill.txt
+!data/products.csv
+!data/password.txt
