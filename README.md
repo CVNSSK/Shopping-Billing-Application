@@ -132,5 +132,4 @@ Feel free to modify and improve upon it!
 - **[Chandu](https://github.com/CVNSSK)** completed the original working version.
 
 **Recent Updates (2025):**  
-- **[Wineel](https://github.com/WINEEL)** updated and enhanced the project with improvements to code quality, cross-platform compatibility, Makefile integration, and file handling, with valuable assistance from GPT.
-
+- **[Wineel](https://github.com/WINEEL)** updated and enhanced the project with improvements to code quality, cross-platform compatibility, Makefile integration, and file handling.
